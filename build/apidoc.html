@@ -1,0 +1,353 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/jquery-form/form"
+
+    >jquery-form (v4.2.1)</a>
+</h1>
+<h4>The jQuery Form Plugin allows you to easily and unobtrusively upgrade HTML forms to use AJAX.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.jquery-form">module jquery-form</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jquery-form.jquery-form">
+            function <span class="apidocSignatureSpan"></span>jquery-form
+            <span class="apidocSignatureSpan">( root, jQuery )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jquery-form.Gruntfile">
+            function <span class="apidocSignatureSpan">jquery-form.</span>Gruntfile
+            <span class="apidocSignatureSpan">(grunt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jquery-form.toString">
+            function <span class="apidocSignatureSpan">jquery-form.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.jquery-form.Gruntfile">module jquery-form.Gruntfile</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jquery-form.Gruntfile.Gruntfile">
+            function <span class="apidocSignatureSpan">jquery-form.</span>Gruntfile
+            <span class="apidocSignatureSpan">(grunt)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.jquery-form.toString">module jquery-form.toString</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jquery-form.toString.toString">
+            function <span class="apidocSignatureSpan">jquery-form.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.jquery-form" id="apidoc.module.jquery-form">module jquery-form</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.jquery-form.jquery-form" id="apidoc.element.jquery-form.jquery-form">
+        function <span class="apidocSignatureSpan"></span>jquery-form
+        <span class="apidocSignatureSpan">( root, jQuery )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">jquery-form = function ( root, jQuery ) {
+			if (typeof jQuery === &#x27;undefined&#x27;) {
+				// require(&#x27;jQuery&#x27;) returns a factory that requires window to build a jQuery instance, we normalize how we use modules
+				// that require this pattern but the window provided is a noop if it&#x27;s defined (how jquery works)
+				if (typeof window !== &#x27;undefined&#x27;) {
+					jQuery = require(&#x27;jquery&#x27;);
+				}
+				else {
+					jQuery = require(&#x27;jquery&#x27;)(root);
+				}
+			}
+			factory(jQuery);
+			return jQuery;
+		}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jquery-form.Gruntfile" id="apidoc.element.jquery-form.Gruntfile">
+        function <span class="apidocSignatureSpan">jquery-form.</span>Gruntfile
+        <span class="apidocSignatureSpan">(grunt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Gruntfile = function (grunt) {
+	grunt.initConfig({
+		pkg: grunt.file.readJSON(&#x27;package.json&#x27;),
+		meta: {
+			banner: &#x27;/*! &#x3c;%= pkg.name %&#x3e; &#x3c;%= grunt.template.today(&#x22;yyyy-mm-dd HH:MM:ss&#x22;) %&#x3e; */&#x27;
+		},
+
+		githooks: {
+			options: {
+				hashbang: &#x27;#!/bin/sh&#x27;,
+				template: &#x27;install/template/shell.hb&#x27;,
+				startMarker: &#x27;# GRUNT-GITHOOKS START&#x27;,
+				endMarker: &#x27;# GRUNT-GITHOOKS END&#x27;
+			},
+			all: {
+				&#x27;pre-commit&#x27;: &#x27;pre-commit&#x27;
+			}
+		},
+
+		eslint: {
+			options: {
+				quiet: true
+			},
+			target: [&#x27;src/**/*.js&#x27;]
+		},
+
+		mocha: {
+			all: {
+				src: [&#x27;test/*.html&#x27;],
+			},
+			options: {
+				run: true
+			}
+		},
+
+		// Minifies JS files
+		uglify: {
+			options: {
+				preserveComments: /^!|@preserve|@license|@cc_on/i,
+				sourceMap: true,
+				footer: &#x27;\n&#x27;
+			},
+			dist: {
+				files: [{
+					expand:	true,
+					cwd:	&#x27;src&#x27;,
+					src:	[&#x27;*.js&#x27;,&#x27;!*.min.js&#x27;],
+					dest:	&#x27;dist&#x27;,
+					ext:	&#x27;.min.js&#x27;,
+					extDot:	&#x27;last&#x27;
+				}]
+			}
+		}
+	});
+
+	// Load tasks
+	grunt.loadNpmTasks(&#x27;grunt-contrib-uglify&#x27;);
+	grunt.loadNpmTasks(&#x27;grunt-mocha&#x27;);
+	grunt.loadNpmTasks(&#x27;grunt-eslint&#x27;);
+	grunt.loadNpmTasks(&#x27;grunt-githooks&#x27;);
+
+	// Default task.
+	grunt.registerTask(&#x27;lint&#x27;, [ &#x27;eslint&#x27; ]);
+	grunt.registerTask(&#x27;test&#x27;, [ &#x27;lint&#x27;, &#x27;mocha&#x27; ]);
+	grunt.registerTask(&#x27;pre-commit&#x27;, [ &#x27;test&#x27; ]);
+	grunt.registerTask(&#x27;default&#x27;, [ &#x27;test&#x27;, &#x27;uglify&#x27; ]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jquery-form.toString" id="apidoc.element.jquery-form.toString">
+        function <span class="apidocSignatureSpan">jquery-form.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.jquery-form.Gruntfile" id="apidoc.module.jquery-form.Gruntfile">module jquery-form.Gruntfile</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.jquery-form.Gruntfile.Gruntfile" id="apidoc.element.jquery-form.Gruntfile.Gruntfile">
+        function <span class="apidocSignatureSpan">jquery-form.</span>Gruntfile
+        <span class="apidocSignatureSpan">(grunt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Gruntfile = function (grunt) {
+	grunt.initConfig({
+		pkg: grunt.file.readJSON(&#x27;package.json&#x27;),
+		meta: {
+			banner: &#x27;/*! &#x3c;%= pkg.name %&#x3e; &#x3c;%= grunt.template.today(&#x22;yyyy-mm-dd HH:MM:ss&#x22;) %&#x3e; */&#x27;
+		},
+
+		githooks: {
+			options: {
+				hashbang: &#x27;#!/bin/sh&#x27;,
+				template: &#x27;install/template/shell.hb&#x27;,
+				startMarker: &#x27;# GRUNT-GITHOOKS START&#x27;,
+				endMarker: &#x27;# GRUNT-GITHOOKS END&#x27;
+			},
+			all: {
+				&#x27;pre-commit&#x27;: &#x27;pre-commit&#x27;
+			}
+		},
+
+		eslint: {
+			options: {
+				quiet: true
+			},
+			target: [&#x27;src/**/*.js&#x27;]
+		},
+
+		mocha: {
+			all: {
+				src: [&#x27;test/*.html&#x27;],
+			},
+			options: {
+				run: true
+			}
+		},
+
+		// Minifies JS files
+		uglify: {
+			options: {
+				preserveComments: /^!|@preserve|@license|@cc_on/i,
+				sourceMap: true,
+				footer: &#x27;\n&#x27;
+			},
+			dist: {
+				files: [{
+					expand:	true,
+					cwd:	&#x27;src&#x27;,
+					src:	[&#x27;*.js&#x27;,&#x27;!*.min.js&#x27;],
+					dest:	&#x27;dist&#x27;,
+					ext:	&#x27;.min.js&#x27;,
+					extDot:	&#x27;last&#x27;
+				}]
+			}
+		}
+	});
+
+	// Load tasks
+	grunt.loadNpmTasks(&#x27;grunt-contrib-uglify&#x27;);
+	grunt.loadNpmTasks(&#x27;grunt-mocha&#x27;);
+	grunt.loadNpmTasks(&#x27;grunt-eslint&#x27;);
+	grunt.loadNpmTasks(&#x27;grunt-githooks&#x27;);
+
+	// Default task.
+	grunt.registerTask(&#x27;lint&#x27;, [ &#x27;eslint&#x27; ]);
+	grunt.registerTask(&#x27;test&#x27;, [ &#x27;lint&#x27;, &#x27;mocha&#x27; ]);
+	grunt.registerTask(&#x27;pre-commit&#x27;, [ &#x27;test&#x27; ]);
+	grunt.registerTask(&#x27;default&#x27;, [ &#x27;test&#x27;, &#x27;uglify&#x27; ]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.jquery-form.toString" id="apidoc.module.jquery-form.toString">module jquery-form.toString</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.jquery-form.toString.toString" id="apidoc.element.jquery-form.toString.toString">
+        function <span class="apidocSignatureSpan">jquery-form.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
