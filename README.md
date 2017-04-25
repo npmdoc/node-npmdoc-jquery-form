@@ -1,4 +1,7 @@
-# api documentation for  [jquery-form (v4.2.1)](https://github.com/jquery-form/form)  [![npm package](https://img.shields.io/npm/v/npmdoc-jquery-form.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-jquery-form) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-jquery-form.svg)](https://travis-ci.org/npmdoc/node-npmdoc-jquery-form)
+# npmdoc-jquery-form
+
+#### basic api documentation for  [jquery-form (v4.2.1)](https://github.com/jquery-form/form)  [![npm package](https://img.shields.io/npm/v/npmdoc-jquery-form.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-jquery-form) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-jquery-form.svg)](https://travis-ci.org/npmdoc/node-npmdoc-jquery-form)
+
 #### The jQuery Form Plugin allows you to easily and unobtrusively upgrade HTML forms to use AJAX.
 
 [![NPM](https://nodei.co/npm/jquery-form.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/jquery-form)
@@ -91,7 +94,8 @@
         "url": "git+https://github.com/jquery-form/form.git"
     },
     "scripts": {},
-    "version": "4.2.1"
+    "version": "4.2.1",
+    "bin": {}
 }
 ```
 
